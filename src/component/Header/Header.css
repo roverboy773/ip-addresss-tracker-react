@@ -1,0 +1,27 @@
+.header_div{
+    color: white;
+    background-image: url('../../images/pattern-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.input_wrapper{
+    width:28%;
+    position: relative;
+}
+input{
+    width:100%;
+    padding:10px 18px;
+    outline:none;
+    border: none;
+    border-radius:14px;
+    font-size: 18px;
+    color:hsl(0, 0%, 59%)
+}
+button{
+    position: absolute;
+    
+}
