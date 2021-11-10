@@ -4,21 +4,32 @@ import './Header.css'
 const Header = () => {
     const [inputState, setinputState] = useState('')
     const [clicked, setclicked] = useState(false)
-    const [data, setdata] = useState('')
+    const [data, setdata] = useState({})
 
     const handleInput = (e) => {
         setinputState(e.target.value);
     }
+    const handleButtonClick=()=>{
+        setclicked(!clicked);
+    }
+
     useEffect(() => {
+        if(clicked===true){
         fetch("https://geo.ipify.org/api/v2/country?apiKey=at_4gBaFWnYJDyaykCzghQere9IsAWPv")
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
+                console.log(res)
+                setclicked(false)
+                setinputState(res.ip)
+                setdata({...data,res})
+                console.log(res)
+                // setdata(res)
             })
+        }
         return () => {
 
         }
-    }, [inputState])
+    }, [clicked])
 
     return (
         <div className="header_div">
@@ -28,15 +39,15 @@ const Header = () => {
                     placeholder="Search for any IP address or domain"
                     value={inputState} onChange={(e) => { handleInput(e) }}
                 />
-                <button>{
+                <button onClick={()=>{handleButtonClick()}}>{
                     clicked?<div className="animated_loader">
-
+                          
                     </div> :
                     <i className="las la-angle-right"></i>
                 }</button>
             </div>
-
-            <Location data={data} />
+           {/* {console.log(data.res)} */}
+           {data.hasOwnProperty("res")? <Location data={data.res}/>:null}
         </div>
     )
 }

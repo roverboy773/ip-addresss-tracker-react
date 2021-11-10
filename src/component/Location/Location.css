@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+.info_wrapper{
+    position:absolute;
+    top:25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 15px;
+    color:black;
+    width:85%;
+    
+}
+.info_wrapper h6,p{
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: Rubik;
+}
+.info_wrapper h6{
+    color:hsl(0, 0%, 59%);
+    font-size: 20px;
+}
