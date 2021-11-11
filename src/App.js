@@ -1,11 +1,13 @@
+import { useState } from 'react'
 import Header from './component/Header/Header'
-import Map from './component/Map/Map'
+import Maps from './component/Map/Map'
 import './App.css'
 function App() {
+  const [pos, setpos] = useState([])
   return (
     <div className="App">
-        <Header />
-        <Map></Map>
+        <Header pos={(data)=>{setpos(...pos,data)}}/>
+        <Maps data={pos}></Maps>
     </div>
   );
 }

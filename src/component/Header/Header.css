@@ -39,8 +39,15 @@ button{
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
     background-color: black;
+    cursor: pointer;
+    overflow: hidden;
 }
 button i{
     color: white;
     font-weight: bold;
+}
+button img{
+    margin:0;
+    width:45px;
+    height:50px
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Location from '../Location/Location'
+import loader from '../../images/circles-menu-1.gif'
 import './Header.css'
-const Header = () => {
+const Header = ({pos}) => {
     const [inputState, setinputState] = useState('')
     const [clicked, setclicked] = useState(false)
     const [data, setdata] = useState({})
@@ -11,23 +12,30 @@ const Header = () => {
     }
     const handleButtonClick=()=>{
         setclicked(!clicked);
+        
     }
 
     useEffect(() => {
         if(clicked===true){
-        fetch("https://geo.ipify.org/api/v2/country?apiKey=at_4gBaFWnYJDyaykCzghQere9IsAWPv")
+            document.querySelector('button').style.backgroundColor="white";
+        fetch("https://ipapi.co/json/")
             .then((res) => res.json())
             .then((res) => {
-                console.log(res)
+                if(res.city){
+               
+                pos([res.latitude,res.longitude])
                 setclicked(false)
                 setinputState(res.ip)
                 setdata({...data,res})
-                console.log(res)
-                // setdata(res)
+               
+                }
+            document.querySelector('button').style.backgroundColor="black";
+
+              
             })
         }
         return () => {
-
+           
         }
     }, [clicked])
 
@@ -41,7 +49,7 @@ const Header = () => {
                 />
                 <button onClick={()=>{handleButtonClick()}}>{
                     clicked?<div className="animated_loader">
-                          
+                          <img src={loader} />
                     </div> :
                     <i className="las la-angle-right"></i>
                 }</button>

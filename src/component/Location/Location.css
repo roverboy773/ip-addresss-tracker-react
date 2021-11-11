@@ -3,21 +3,23 @@
     position:absolute;
     top:25%;
     display: flex;
-    align-items: center;
+    align-items:baseline;
     justify-content: space-around;
     background-color: white;
     border-radius: 15px;
     color:black;
     width:85%;
-    
+    z-index: 100;
 }
 .info_wrapper h6,p{
-    margin-bottom: 0;
     font-weight: bold;
     text-transform: capitalize;
     font-family: Rubik;
 }
 .info_wrapper h6{
+    margin-bottom: 0;
     color:hsl(0, 0%, 59%);
     font-size: 20px;
 }
+
+

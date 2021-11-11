@@ -11,16 +11,16 @@ const Location = ({ data }) => {
                 </div>
                 <div className="Loc">
                     <h6>location</h6>
-                    <p>{data.location.region}</p>
-                    <p>{data.location.country}</p>
+                    <p>{data.region}</p>
+                    <p>{data.country_name}</p>
                 </div>
                 <div className="time">
                     <h6>timezone</h6>
-                    <p>{data.location.timezone}</p>
+                    <p>{data.timezone}</p>
                 </div>
                 <div className="isp">
                     <h6>ISP</h6>
-                    <p>{data.isp}</p>
+                    <p>{data.org}</p>
                 </div> 
         </div>
     )
